@@ -1,6 +1,20 @@
 import pyautogui
 import time
 import keyboard
+import subprocess
+import sys
+
+# Function to install required modules
+def install(package):
+    try:
+        __import__(package)
+    except ImportError:
+        print(f"Installing {package}...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# Install required modules
+install("pyautogui")
+install("keyboard")
 
 # Define center coordinates
 pixelX = 1198
